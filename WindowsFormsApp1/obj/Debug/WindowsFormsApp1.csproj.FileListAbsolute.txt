@@ -8,3 +8,6 @@ C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3
 C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3D\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3D\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3D\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3D\WindowsFormsApp1\bin\Debug\es\WindowsFormsApp1.resources.dll
+C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3D\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.es.resources
+C:\Users\Antonio\Downloads\DESCARGAS\UNIVERSIDAD\DM3D\TRABAJO\CODIGO\Parametric3D\WindowsFormsApp1\obj\Debug\es\WindowsFormsApp1.resources.dll

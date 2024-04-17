@@ -3,22 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\antonio\\downloads\\descargas\\universidad\\dm3d\\trabajo\\codigo\\parametric3d\\windowsformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\windowsformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\windowsformsapp1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\antonio\\downloads\\descargas\\universidad\\dm3d\\trabajo\\codigo\\parametric3d\\windowsformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\antonio\\downloads\\descargas\\universidad\\dm3d\\trabajo\\codigo\\parametric3d\\windowsformsapp1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53054008-3058-4A4B-924B-18C409C178F8}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 139,
+      "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Form1.cs",
               "ToolTip": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.cs",
               "RelativeToolTip": "WindowsFormsApp1\\Form1.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAIwCcAAAA9AAAA",
+              "ViewState": "AQIAADcAAAAAAAAAAAAkwE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-17T09:18:37.129Z",
               "IsPinned": true,
@@ -41,27 +41,29 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Form1.cs [Dise\u00F1o - Espa\u00F1ol]",
+              "DocumentMoniker": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Form1.cs",
+              "ToolTip": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.cs [Dise\u00F1o - Espa\u00F1ol]",
+              "RelativeToolTip": "WindowsFormsApp1\\Form1.cs [Dise\u00F1o - Espa\u00F1ol]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T09:18:03.515Z",
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o - Espa\u00F1ol]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.Designer.cs",
               "RelativeToolTip": "WindowsFormsApp1\\Form1.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-17T09:18:10.499Z",
+              "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Form1.cs",
-              "ToolTip": "C:\\Users\\Antonio\\Downloads\\DESCARGAS\\UNIVERSIDAD\\DM3D\\TRABAJO\\CODIGO\\Parametric3D\\WindowsFormsApp1\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WindowsFormsApp1\\Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T09:18:03.515Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
