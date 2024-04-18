@@ -44,7 +44,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBoxNumCaras = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,10 +65,6 @@
             resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -144,6 +142,7 @@
             // panel2
             // 
             resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label2);
@@ -151,15 +150,27 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Name = "panel2";
             // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
             // panel3
             // 
             resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Controls.Add(this.textBoxNumCaras);
             this.panel3.Controls.Add(this.textBoxR1);
             this.panel3.Controls.Add(this.textBoxR2);
             this.panel3.Controls.Add(this.textBoxH1);
             this.panel3.Controls.Add(this.textBoxW1);
             this.panel3.Controls.Add(this.textBoxH2);
             this.panel3.Name = "panel3";
+            // 
+            // textBoxNumCaras
+            // 
+            resources.ApplyResources(this.textBoxNumCaras, "textBoxNumCaras");
+            this.textBoxNumCaras.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxNumCaras.Name = "textBoxNumCaras";
             // 
             // pictureBox1
             // 
@@ -172,7 +183,7 @@
             // 
             this.AcceptButton = this.button1;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel3);
@@ -208,6 +219,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxNumCaras;
+        private System.Windows.Forms.Label label6;
     }
 }
 

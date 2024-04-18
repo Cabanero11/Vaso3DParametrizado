@@ -14,10 +14,47 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+        // PARA EVENTOS
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            // Obtener los parámetros del usuario
+            int numLados = int.Parse(textBoxNumCaras.Text);
+            double altura = double.Parse(textBoxH1.Text);
+            double radio = double.Parse(textBoxR1.Text);
+
+            // Generar el cilindro con los parámetros especificados
+            FuncionGenerarCilindro(numLados, altura, radio, "cilindro.obj");
+
+            MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string currentDirectory = Environment.CurrentDirectory;
+            Process.Start(currentDirectory);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Valores predeterminados para los parámetros del cilindro
+            int numLadosDefault = 20;
+            double alturaDefault = 10.0;
+            double radioDefault = 5.0;
+
+            // Generar el cilindro con los valores predeterminados
+            FuncionGenerarCilindro(numLadosDefault, alturaDefault, radioDefault, "cilindro_default.obj");
+
+            MessageBox.Show("Archivo cilindro_default.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        // CODIGO DEL CILINDRO
+
 
 
         // TRANSFORMACION DEL CODIGO DEL DE JAVA AAAA
@@ -37,12 +74,13 @@ namespace WindowsFormsApp1
             }
 
             // Calcular caras
-            for (int i = 0; i < numLados; i++)
+            for (int i = 0; i < numLados + 1; i++)
             {
-                caras.Add(new List<int>() { i * 2, (i * 2 + 2) % (numLados * 2), (i * 2 + 4) % (numLados * 2), i * 2 + 4 });
-                caras.Add(new List<int>() { i * 2 + 1, (i * 2 + 5) % (numLados * 2), (i * 2 + 3) % (numLados * 2), (i * 2 + 1) % (numLados * 2) });
-                caras.Add(new List<int>() { i * 2, i * 2 + 1, (i * 2 + 1) % (numLados * 2), (i * 2 + 2) % (numLados * 2) });
-                caras.Add(new List<int>() { (i * 2 + 2) % (numLados * 2), i * 2 + 4, (i * 2 + 3) % (numLados * 2), (i * 2 + 5) % (numLados * 2) });
+                // Cara lateral
+                caras.Add(new List<int>() { i * 2, (i * 2 + 2) % (numLados * 2), (i * 2 + 3) % (numLados * 2), i * 2 + 1 });
+
+                // Cara inferior
+                caras.Add(new List<int>() { i * 2, (i * 2 + 2) % (numLados * 2), (i * 2 + 4) % (numLados * 2), i * 2 + 6 });
             }
 
             // Guardar los vértices y caras en un archivo .obj
@@ -76,37 +114,10 @@ namespace WindowsFormsApp1
         }
 
 
-        private void btnGenerar_Click(object sender, EventArgs e)
-        {
-            // Obtener los parámetros del usuario
-            int numLados = int.Parse(textBoxH1.Text);
-            double altura = double.Parse(textBoxH2.Text);
-            double radio = double.Parse(textBoxR1.Text);
 
-            // Generar el cilindro con los parámetros especificados
-            FuncionGenerarCilindro(numLados, altura, radio, "cilindro.obj");
 
-            MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string currentDirectory = Environment.CurrentDirectory;
-            Process.Start(currentDirectory);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            // Valores predeterminados para los parámetros del cilindro
-            int numLadosDefault = 20;
-            double alturaDefault = 10.0;
-            double radioDefault = 5.0;
-
-            // Generar el cilindro con los valores predeterminados
-            FuncionGenerarCilindro(numLadosDefault, alturaDefault, radioDefault, "cilindro_default.obj");
-
-            MessageBox.Show("Archivo cilindro_default.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+       
     }
 
    

@@ -119,15 +119,16 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="textBoxR1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 16</value>
+    <value>12, 51</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="textBoxR1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="textBoxR1.Text" xml:space="preserve">
     <value>10</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -140,6 +141,9 @@
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 52</value>
   </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -149,26 +153,41 @@
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 162</value>
   </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="textBoxR2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 63</value>
+    <value>12, 98</value>
+  </data>
+  <data name="textBoxR2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="textBoxR2.Text" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="textBoxH1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 108</value>
+    <value>12, 143</value>
+  </data>
+  <data name="textBoxH1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="textBoxH1.Text" xml:space="preserve">
     <value>20</value>
   </data>
   <data name="textBoxH2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 153</value>
+    <value>12, 188</value>
+  </data>
+  <data name="textBoxH2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="textBoxH2.Text" xml:space="preserve">
     <value>15</value>
   </data>
   <data name="textBoxW1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 197</value>
+    <value>12, 232</value>
+  </data>
+  <data name="textBoxW1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="textBoxW1.Text" xml:space="preserve">
     <value>2</value>
@@ -186,19 +205,19 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 18</value>
+    <value>43, 58</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 68</value>
+    <value>43, 105</value>
   </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 117</value>
+    <value>43, 150</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>221, 280</value>
@@ -210,34 +229,55 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 171</value>
+    <value>43, 195</value>
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 220</value>
+    <value>43, 239</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 16</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>nº Caras</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 12</value>
+    <value>186, 8</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 241</value>
+    <value>80, 266</value>
   </data>
   <data name="panel3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="textBoxNumCaras.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textBoxNumCaras.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 12</value>
+    <value>272, 12</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 241</value>
+    <value>175, 262</value>
   </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>120, 120</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>721, 509</value>
+    <value>758, 509</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
