@@ -18,8 +18,13 @@ namespace WindowsFormsApp1
         {
 
         }
-
         private void btnGenerar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
         {
             // Obtener los parámetros del usuario
             int numLados = int.Parse(textBoxNumCaras.Text);
@@ -35,6 +40,7 @@ namespace WindowsFormsApp1
             MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
             string currentDirectory = Environment.CurrentDirectory;
@@ -48,8 +54,8 @@ namespace WindowsFormsApp1
             double r1Default = 10.0;
             double r2Default = 10.0;
             double h1Default = 20.0;
-            double h2Default = 15.0;
-            double w1Default = 2.0;
+            double h2Default = 10.0;
+            double w1Default = 3.0;
 
             // Generar el cilindro con los valores predeterminados
             FuncionGenerarVaso(numLadosDefault, r1Default, r2Default, h1Default, h2Default, w1Default, "cilindro_default.obj");
@@ -160,7 +166,6 @@ namespace WindowsFormsApp1
                 Console.WriteLine("Error al escribir el archivo OBJ anidado: " + e.Message);
             }
         }
-
 
     } // CLASE
 } // NAMESPACE
