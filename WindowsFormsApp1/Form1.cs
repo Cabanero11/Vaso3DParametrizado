@@ -46,13 +46,14 @@ namespace WindowsFormsApp1
             // Valores predeterminados para los parámetros del cilindro
             int numLadosDefault = 20;
             double r1Default = 10.0;
-            double r2Default = 15.0;
+            double r2Default = 16.0;
             double h1Default = 20.0;
             double h2Default = 10.0;
-            double w1Default = 3.0;
+            double w1Default = 2.0;
 
             // Generar el cilindro con los valores predeterminados
             FuncionGenerarVaso(numLadosDefault, r1Default, r2Default, h1Default, h2Default, w1Default, "cilindro_default.obj");
+
 
             MessageBox.Show("Archivo cilindro_default.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -171,6 +172,10 @@ namespace WindowsFormsApp1
                 Console.WriteLine("Error al escribir el archivo OBJ anidado: " + e.Message);
             }
         }
+
+
+
+       
 
     } // CLASE
 } // NAMESPACE
