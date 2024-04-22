@@ -156,6 +156,9 @@
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Abrir carpeta contenedora</value>
+  </data>
   <data name="textBoxR2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 98</value>
   </data>
@@ -163,7 +166,7 @@
     <value>2</value>
   </data>
   <data name="textBoxR2.Text" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="textBoxH1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 143</value>
@@ -181,7 +184,7 @@
     <value>4</value>
   </data>
   <data name="textBoxH2.Text" xml:space="preserve">
-    <value>15</value>
+    <value>10</value>
   </data>
   <data name="textBoxW1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 232</value>
@@ -190,7 +193,7 @@
     <value>5</value>
   </data>
   <data name="textBoxW1.Text" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="button3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -200,6 +203,9 @@
   </data>
   <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 90</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>Generar Default</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -237,6 +243,12 @@
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 239</value>
   </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 3</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 266</value>
+  </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -248,12 +260,6 @@
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>nº Caras</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 3</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 266</value>
   </data>
   <data name="panel3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>

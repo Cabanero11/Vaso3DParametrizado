@@ -31,8 +31,9 @@ namespace WindowsFormsApp1
             double r1 = double.Parse(textBoxR1.Text);
             double r2 = double.Parse(textBoxR2.Text);
             double h1 = double.Parse(textBoxH1.Text);
-            double h2 = double.Parse(textBoxR2.Text);
-            double w1 = double.Parse(textBoxH1.Text);
+            double h2 = double.Parse(textBoxH2.Text);
+            double w1 = double.Parse(textBoxW1.Text);
+
 
             // Generar el cilindro con los parámetros especificados
             FuncionGenerarVaso(numLados, r1, r2, h1, h2, w1, "cilindro.obj");
@@ -40,19 +41,12 @@ namespace WindowsFormsApp1
             MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string currentDirectory = Environment.CurrentDirectory;
-            Process.Start(currentDirectory);
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             // Valores predeterminados para los parámetros del cilindro
             int numLadosDefault = 20;
             double r1Default = 10.0;
-            double r2Default = 10.0;
+            double r2Default = 15.0;
             double h1Default = 20.0;
             double h2Default = 10.0;
             double w1Default = 3.0;
@@ -61,6 +55,13 @@ namespace WindowsFormsApp1
             FuncionGenerarVaso(numLadosDefault, r1Default, r2Default, h1Default, h2Default, w1Default, "cilindro_default.obj");
 
             MessageBox.Show("Archivo cilindro_default.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string currentDirectory = Environment.CurrentDirectory;
+            Process.Start(currentDirectory);
         }
 
 
@@ -80,6 +81,8 @@ namespace WindowsFormsApp1
                     // Vértices para el primer poliedro
                     GuardarObjetoObj(writer, "v 0.000000 0.000000 0.000000"); // Vértice central inferior
                     GuardarObjetoObj(writer, "v 0.000000 0.000000 " + h1); // Vértice central superior
+
+
                     for (int i = 0; i < numCaras; i++)
                     {
                         double angle = 2 * Math.PI * i / numCaras;
@@ -89,8 +92,10 @@ namespace WindowsFormsApp1
                         GuardarObjetoObj(writer, "v " + String.Format("{0:F6}", x).Replace(",", ".") + " " + String.Format("{0:F6}", y).Replace(",", ".") + " " + String.Format("{0:F6}", h1).Replace(",", ".")); // Vértices superiores
                     }
 
+                    
+
                     // Vértices para el segundo poliedro
-                    r2 = r1 - w1; // Ajustamos el radio del segundo poliedro
+                    
                     for (int i = 0; i < numCaras; i++)
                     {
                         double angle = 2 * Math.PI * i / numCaras;
