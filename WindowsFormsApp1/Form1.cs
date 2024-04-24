@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace WindowsFormsApp1
 {
@@ -36,7 +37,8 @@ namespace WindowsFormsApp1
 
 
             // Generar el cilindro con los parámetros especificados
-            FuncionGenerarVaso(numLados, r1, r2, h1, h2, w1, "cilindro.obj");
+            FuncionGenerarVaso(numLados, h1, r1, r2, h2, w1, "cilindro.obj");
+
 
             MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -52,7 +54,7 @@ namespace WindowsFormsApp1
             double w1Default = 2.0;
 
             // Generar el cilindro con los valores predeterminados
-            FuncionGenerarVaso(numLadosDefault, r1Default, r2Default, h1Default, h2Default, w1Default, "cilindro_default.obj");
+            FuncionGenerarVaso(numLadosDefault, h1Default, r1Default, r2Default, h2Default, w1Default, "cilindro_default.obj");
 
 
             MessageBox.Show("Archivo cilindro_default.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -73,109 +75,111 @@ namespace WindowsFormsApp1
             writer.WriteLine(line);
         }
 
-        public static void FuncionGenerarVaso(int numCaras, double r1, double r2, double h1, double h2, double w1, string filename)
+        public static void FuncionGenerarVaso(int numSides1, double height1, double radius1, double r2, double h2, double w1, string filename)
         {
             try
             {
                 using (StreamWriter writer = new StreamWriter(filename))
                 {
                     // Vértices para el primer poliedro
-                    GuardarObjetoObj(writer, "v 0.000000 0.000000 0.000000"); // Vértice central inferior
-                    GuardarObjetoObj(writer, "v 0.000000 0.000000 " + h1); // Vértice central superior
-
-
-                    for (int i = 0; i < numCaras; i++)
+                    writer.WriteLine("v 0.000000 0.000000 0.000000"); // Vértice central inferior
+                    writer.WriteLine("v 0.000000 0.000000 " + height1.ToString("F6", CultureInfo.InvariantCulture)); // Vértice central superior
+                    for (int i = 0; i < numSides1; i++)
                     {
-                        double angle = 2 * Math.PI * i / numCaras;
-                        double x = r1 * Math.Cos(angle);
-                        double y = r1 * Math.Sin(angle);
-                        GuardarObjetoObj(writer, "v " + String.Format("{0:F6}", x).Replace(",", ".") + " " + String.Format("{0:F6}", y).Replace(",", ".") + " 0.000000"); // Vértices inferiores
-                        GuardarObjetoObj(writer, "v " + String.Format("{0:F6}", x).Replace(",", ".") + " " + String.Format("{0:F6}", y).Replace(",", ".") + " " + String.Format("{0:F6}", h1).Replace(",", ".")); // Vértices superiores
+                        double angle = 2 * Math.PI * i / numSides1;
+                        double x1 = radius1 * Math.Cos(angle);
+                        double y1 = radius1 * Math.Sin(angle);
+                        double x2 = r2 * Math.Cos(angle); // Ajuste para el radio superior
+                        double y2 = r2 * Math.Sin(angle); // Ajuste para el radio superior
+                        writer.WriteLine("v " + x1.ToString("F6", CultureInfo.InvariantCulture) + " " + y1.ToString("F6", CultureInfo.InvariantCulture) + " 0.000000"); // Vértices inferiores
+                        writer.WriteLine("v " + x2.ToString("F6", CultureInfo.InvariantCulture) + " " + y2.ToString("F6", CultureInfo.InvariantCulture) + " " + height1.ToString("F6", CultureInfo.InvariantCulture)); // Vértices superiores
                     }
 
-                    
+                    // Calcular el radio inferior del segundo poliedro
+                    double ratio = h2 / height1;
+                    double diffRadius = radius1 - r2;
+                    double radius2 = radius1 - diffRadius * ratio - w1;
 
                     // Vértices para el segundo poliedro
-                    
-                    for (int i = 0; i < numCaras; i++)
+                    double radius3 = r2 - w1;
+                    for (int i = 0; i < numSides1; i++)
                     {
-                        double angle = 2 * Math.PI * i / numCaras;
-                        double x = r2 * Math.Cos(angle);
-                        double y = r2 * Math.Sin(angle);
-                        GuardarObjetoObj(writer, "v " + String.Format("{0:F6}", x).Replace(",", ".") + " " + String.Format("{0:F6}", y).Replace(",", ".") + " " + String.Format("{0:F6}", h2).Replace(",", ".")); // Vértices inferiores del segundo poliedro
-                        GuardarObjetoObj(writer, "v " + String.Format("{0:F6}", x).Replace(",", ".") + " " + String.Format("{0:F6}", y).Replace(",", ".") + " " + String.Format("{0:F6}", h1).Replace(",", ".")); // Vértices superiores del segundo poliedro
+                        double angle = 2 * Math.PI * i / numSides1;
+                        double x = radius2 * Math.Cos(angle);
+                        double y = radius2 * Math.Sin(angle);
+                        double x1 = radius3 * Math.Cos(angle); // Ajuste para el radio superior
+                        double y1 = radius3 * Math.Sin(angle); // Ajuste para el radio superior
+                        writer.WriteLine("v " + x.ToString("F6", CultureInfo.InvariantCulture) + " " + y.ToString("F6", CultureInfo.InvariantCulture) + " " + h2.ToString("F6", CultureInfo.InvariantCulture)); // Vértices inferiores del segundo poliedro
+                        writer.WriteLine("v " + x1.ToString("F6", CultureInfo.InvariantCulture) + " " + y1.ToString("F6", CultureInfo.InvariantCulture) + " " + height1.ToString("F6", CultureInfo.InvariantCulture)); // Vértices superiores del segundo poliedro
                     }
+
                     // Vértice central de la cara inferior del segundo poliedro
-                    GuardarObjetoObj(writer, "v 0.000000 0.000000 " + String.Format("{0:F6}", h2).Replace(",", ".")); // Vértice central inferior del segundo poliedro
+                    writer.WriteLine("v 0.000000 0.000000 " + h2.ToString("F6", CultureInfo.InvariantCulture)); // Vértice central inferior del segundo poliedro
 
                     // Normales
-                    GuardarObjetoObj(writer, "vn -1.000000 0.000000 0.000000"); // Normal para las caras laterales
-                    GuardarObjetoObj(writer, "vn 0.000000 0.000000 -1.000000"); // Normal para la cara inferior (invertida)
+                    writer.WriteLine("vn -1.000000 0.000000 0.000000"); // Normal para las caras laterales
+                    writer.WriteLine("vn 0.000000 0.000000 -1.000000"); // Normal para la cara inferior (invertida)
 
                     // Caras para el primer poliedro
                     // Cara inferior
-                    for (int i = 0; i < numCaras; i++)
+                    for (int i = 0; i < numSides1; i++)
                     {
                         int v1 = i * 2 + 3; // Índice del primer vértice de la cara inferior
-                        int v2 = (i + 1) % numCaras * 2 + 3; // Índice del segundo vértice de la cara inferior
+                        int v2 = (i + 1) % numSides1 * 2 + 3; // Índice del segundo vértice de la cara inferior
                                                               // Cara inferior
-                        GuardarObjetoObj(writer, "f " + v1 + "//1 " + v2 + "//1 1//1");
+                        writer.WriteLine("f " + v1 + "//1 " + v2 + "//1 1//1");
                     }
 
                     // Caras laterales para el primer poliedro
-                    for (int i = 0; i < numCaras; i++)
+                    for (int i = 0; i < numSides1; i++)
                     {
                         int v1 = i * 2 + 3; // Índice del primer vértice de la cara inferior
-                        int v2 = (i + 1) % numCaras * 2 + 3; // Índice del segundo vértice de la cara inferior
+                        int v2 = (i + 1) % numSides1 * 2 + 3; // Índice del segundo vértice de la cara inferior
                                                               // Caras laterales (dos triángulos)
-                        GuardarObjetoObj(writer, "f " + v1 + "//2 " + v2 + "//2 " + (v2 + 1) + "//2"); // Cara lateral (triángulo 1)
-                        GuardarObjetoObj(writer, "f " + v1 + "//2 " + (v2 + 1) + "//2 " + (v1 + 1) + "//2"); // Cara lateral (triángulo 2)
+                        writer.WriteLine("f " + v1 + "//2 " + v2 + "//2 " + (v2 + 1) + "//2"); // Cara lateral (triángulo 1)
+                        writer.WriteLine("f " + v1 + "//2 " + (v2 + 1) + "//2 " + (v1 + 1) + "//2"); // Cara lateral (triángulo 2)
                     }
 
                     // Caras para el segundo poliedro
                     // Cara inferior del segundo poliedro
-                    for (int i = 0; i < numCaras; i++)
+                    for (int i = 0; i < numSides1; i++)
                     {
-                        int v1 = i * 2 + 3 + 2 * numCaras; // Índice del primer vértice de la cara inferior del segundo poliedro
-                        int v2 = (i + 1) % numCaras * 2 + 3 + 2 * numCaras; // Índice del segundo vértice de la cara inferior del segundo poliedro
-                        int v3 = 4 * numCaras + 3; // Índice del vértice central de la cara inferior del segundo poliedro
+                        int v1 = i * 2 + 3 + 2 * numSides1; // Índice del primer vértice de la cara inferior del segundo poliedro
+                        int v2 = (i + 1) % numSides1 * 2 + 3 + 2 * numSides1; // Índice del segundo vértice de la cara inferior del segundo poliedro
+                        int v3 = 4 * numSides1 + 3; // Índice del vértice central de la cara inferior del segundo poliedro
                                                     // Cara inferior del segundo poliedro
-                        GuardarObjetoObj(writer, "f " + v1 + "//1 " + v2 + "//1 " + v3 + "//1");
+                        writer.WriteLine("f " + v1 + "//1 " + v2 + "//1 " + v3 + "//1");
                     }
 
                     // Caras laterales para el segundo poliedro
-                    for (int i = 0; i < numCaras; i++)
+                    for (int i = 0; i < numSides1; i++)
                     {
-                        int v1 = i * 2 + 3 + 2 * numCaras; // Índice del primer vértice de la cara inferior del segundo poliedro
-                        int v2 = (i + 1) % numCaras * 2 + 3 + 2 * numCaras; // Índice del segundo vértice de la cara inferior del segundo poliedro
+                        int v1 = i * 2 + 3 + 2 * numSides1; // Índice del primer vértice de la cara inferior del segundo poliedro
+                        int v2 = (i + 1) % numSides1 * 2 + 3 + 2 * numSides1; // Índice del segundo vértice de la cara inferior del segundo poliedro
                                                                               // Caras laterales (dos triángulos)
-                        GuardarObjetoObj(writer, "f " + v1 + "//2 " + (v2 + 1) + "//2 " + v2 + "//2"); // Cara lateral (triángulo 1)
-                        GuardarObjetoObj(writer, "f " + v1 + "//2 " + (v1 + 1) + "//2 " + (v2 + 1) + "//2"); // Cara lateral (triángulo 2)
+                        writer.WriteLine("f " + v1 + "//2 " + (v2 + 1) + "//2 " + v2 + "//2"); // Cara lateral (triángulo 1)
+                        writer.WriteLine("f " + v1 + "//2 " + (v1 + 1) + "//2 " + (v2 + 1) + "//2"); // Cara lateral (triángulo 2)
                     }
 
                     // Caras triangulares entre los vértices superiores de ambos poliedros
-                    for (int i = 0; i < numCaras; i++)
+                    for (int i = 0; i < numSides1; i++)
                     {
                         int v1 = i * 2 + 4; // Índice del primer vértice superior del primer poliedro
-                        int v2 = i * 2 + 4 + 2 * numCaras; // Índice del primer vértice superior del segundo poliedro
-                        int v3 = (i + 1) % numCaras * 2 + 4; // Índice del segundo vértice superior del primer poliedro
-                        int v4 = (i + 1) % numCaras * 2 + 4 + 2 * numCaras; // Índice del segundo vértice superior del segundo poliedro
-                        GuardarObjetoObj(writer, "f " + v1 + "//1 " + v2 + "//1 " + v4 + "//1"); // Triángulo 1
-                        GuardarObjetoObj(writer, "f " + v1 + "//1 " + v4 + "//1 " + v3 + "//1"); // Triángulo 2
+                        int v2 = i * 2 + 4 + 2 * numSides1; // Índice del primer vértice superior del segundo poliedro
+                        int v3 = (i + 1) % numSides1 * 2 + 4; // Índice del segundo vértice superior del primer poliedro
+                        int v4 = (i + 1) % numSides1 * 2 + 4 + 2 * numSides1; // Índice del segundo vértice superior del segundo poliedro
+                        writer.WriteLine("f " + v1 + "//1 " + v2 + "//1 " + v4 + "//1"); // Triángulo 1
+                        writer.WriteLine("f " + v1 + "//1 " + v4 + "//1 " + v3 + "//1"); // Triángulo 2
                     }
 
                     Console.WriteLine("Archivo OBJ anidado generado exitosamente.");
                 }
             }
-            catch (IOException e)
+            catch (Exception e)
             {
                 Console.WriteLine("Error al escribir el archivo OBJ anidado: " + e.Message);
             }
         }
-
-
-
-       
 
     } // CLASE
 } // NAMESPACE
