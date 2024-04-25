@@ -4,6 +4,8 @@ using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Globalization;
+using System.ComponentModel;
+using System.Runtime.Remoting.Messaging;
 
 namespace WindowsFormsApp1
 {
@@ -35,12 +37,12 @@ namespace WindowsFormsApp1
             double h2 = double.Parse(textBoxH2.Text);
             double w1 = double.Parse(textBoxW1.Text);
 
+            ComprobarLimitaciones(r1, r2, w1);
 
             // Generar el cilindro con los parámetros especificados
+
             FuncionGenerarVaso(numLados, h1, r1, r2, h2, w1, "cilindro.obj");
 
-
-            MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -79,6 +81,7 @@ namespace WindowsFormsApp1
         {
             try
             {
+
                 using (StreamWriter writer = new StreamWriter(filename))
                 {
                     // Vértices para el primer poliedro
@@ -181,5 +184,40 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void ComprobarLimitaciones(double r1, double r2, double w1)
+        {
+            /// LIMITACIONES DE PARAMETROS
+
+            // Verificar si radius1 es mayor que r2 pero no menor
+            if (r1 < r2)
+            {
+                Console.WriteLine("1");
+                MessageBox.Show("El valor de 'r1' no puede ser menor al de 'r2'", "R1 menor :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //radius1 = r2; // Ajustar radius1 igual a r2
+            } 
+            else if (r1 >= r2 && w1 >= 1)
+            {
+                Console.WriteLine("2");
+                MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            // Verificar si w1 es menor que 1
+            else if (w1 < 1 && r1 >= r2)
+            {
+                Console.WriteLine("3");
+                MessageBox.Show("El valor de w1 no puede ser menor a -> 1", "W1 menor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //w1 = 1; // Ajustar w1 a 1
+            } 
+            else if (w1 >= 1 && r1 >= r2) 
+            {
+                Console.WriteLine("4");
+                MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     } // CLASE
+
+
+
+
+
 } // NAMESPACE
