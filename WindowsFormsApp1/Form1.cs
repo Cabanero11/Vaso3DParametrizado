@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
             writer.WriteLine(line);
         }
 
-        public static void FuncionGenerarVaso(int numSides1, double height1, double radius1, double r2, double h2, double w1, string filename)
+                public static void FuncionGenerarVaso(int numSides1, double height1, double radius1, double r2, double h2, double w1, string filename)
         {
             try
             {
@@ -121,18 +121,49 @@ namespace WindowsFormsApp1
                     // Vértice central de la cara inferior del segundo poliedro
                     writer.WriteLine("v 0.000000 0.000000 " + h2.ToString("F6", CultureInfo.InvariantCulture)); // Vértice central inferior del segundo poliedro
 
-                    // Normales
-                    writer.WriteLine("vn -1.000000 0.000000 0.000000"); // Normal para las caras laterales
-                    writer.WriteLine("vn 0.000000 0.000000 -1.000000"); // Normal para la cara inferior (invertida)
+                    // Calcular las normales para las caras laterales del primer cilindro
+                    for (int i = 0; i < numSides1; i++)
+                    {
+                        // Índices de los vértices de la cara lateral actual
+                        int v1 = i * 2 + 3; // Primer vértice inferior
+                        int v2 = (i + 1) % numSides1 * 2 + 3; // Segundo vértice inferior
+                        int v3 = v2 + 1; // Primer vértice superior
+                        int v4 = v1 + 1; // Segundo vértice superior
+
+                        // Coordenadas de los vértices
+                        double x1 = radius1 * Math.Cos(2 * Math.PI * i / numSides1);
+                        double y1 = radius1 * Math.Sin(2 * Math.PI * i / numSides1);
+                        double x2 = radius1 * Math.Cos(2 * Math.PI * (i + 1) / numSides1);
+                        double y2 = radius1 * Math.Sin(2 * Math.PI * (i + 1) / numSides1);
+
+                        // Vectores que representan los lados de la cara lateral
+                        double[] vec1 = { x2 - x1, y2 - y1, 0 }; // Vector del primer lado
+                        double[] vec2 = { x1 - x2, y1 - y2, height1 }; // Vector del segundo lado
+
+                        // Calcular el producto cruz de los dos vectores para obtener la normal
+                        double nx = vec1[1] * vec2[2] - vec1[2] * vec2[1];
+                        double ny = vec1[2] * vec2[0] - vec1[0] * vec2[2];
+                        double nz = vec1[0] * vec2[1] - vec1[1] * vec2[0];
+
+                        // Normalizar la normal
+                        double length = Math.Sqrt(nx * nx + ny * ny + nz * nz);
+                        nx /= length;
+                        ny /= length;
+                        nz /= length;
+
+                        // Escribir la normal en el archivo (invertida)
+                        writer.WriteLine($"vn {-nx:F6} {-ny:F6} {-nz:F6}");
+                    }
+
 
                     // Caras para el primer poliedro
-                    // Cara inferior
+                    // Cara inferior (invertida)
                     for (int i = 0; i < numSides1; i++)
                     {
                         int v1 = i * 2 + 3; // Índice del primer vértice de la cara inferior
                         int v2 = (i + 1) % numSides1 * 2 + 3; // Índice del segundo vértice de la cara inferior
-                                                              // Cara inferior
-                        writer.WriteLine("f " + v1 + "//1 " + v2 + "//1 1//1");
+                                                              // Cara inferior (invertida)
+                        writer.WriteLine("f " + v2 + "//1 " + v1 + "//1 1//1");
                     }
 
                     // Caras laterales para el primer poliedro
@@ -173,8 +204,8 @@ namespace WindowsFormsApp1
                         int v2 = i * 2 + 4 + 2 * numSides1; // Índice del primer vértice superior del segundo poliedro
                         int v3 = (i + 1) % numSides1 * 2 + 4; // Índice del segundo vértice superior del primer poliedro
                         int v4 = (i + 1) % numSides1 * 2 + 4 + 2 * numSides1; // Índice del segundo vértice superior del segundo poliedro
-                        writer.WriteLine("f " + v1 + "//1 " + v2 + "//1 " + v4 + "//1"); // Triángulo 1
-                        writer.WriteLine("f " + v1 + "//1 " + v4 + "//1 " + v3 + "//1"); // Triángulo 2
+                        writer.WriteLine("f " + v1 + "//1 " + v4 + "//1 " + v2 + "//1"); // Triángulo 1 (inverso)
+                        writer.WriteLine("f " + v1 + "//1 " + v3 + "//1 " + v4 + "//1"); // Triángulo 2 (inverso)
                     }
 
                     Console.WriteLine("Archivo OBJ anidado generado exitosamente.");
@@ -185,6 +216,10 @@ namespace WindowsFormsApp1
                 Console.WriteLine("Error al escribir el archivo OBJ anidado: " + e.Message);
             }
         }
+
+
+
+
 
         private void ComprobarLimitaciones(double r1, double r2, double w1, double h1, double h2)
         {
