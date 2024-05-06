@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
             writer.WriteLine(line);
         }
 
-                public static void FuncionGenerarVaso(int numSides1, double height1, double radius1, double r2, double h2, double w1, string filename)
+        public static void FuncionGenerarVaso(int numSides1, double height1, double radius1, double r2, double h2, double w1, string filename)
         {
             try
             {
@@ -226,34 +226,34 @@ namespace WindowsFormsApp1
             /// LIMITACIONES DE PARAMETROS
 
             // Verificar si r1 es mayor que r2 pero no menor
-            if (r2 < r1)
+            if (r2 < (r1 / 2))
             {
                 Console.WriteLine("1");
-                MessageBox.Show("El valor de 'r2' no puede ser menor al de 'r1'", "R1 menor :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El valor de 'r2' no puede ser menor a la mitad de 'r1'", "R2 mitad :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (w1 >= r1 && r2 >= r1)
+            else if (w1 >= r1 && r2 >= r1 / 2)
             {
                 MessageBox.Show("El valor de w1 no puede ser mayor a r1", "W1 mayor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (r2 >= r1 && w1 >= 1 && h1 > 0 && h2 > 0)
+            else if (r2 >= r1 / 2 && w1 >= 1 && h1 > 0 && h2 > 0)
             {
                 Console.WriteLine("2");
                 MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             // Verificar si w1 es menor que 1
-            else if (w1 < 1 && r2 >= r1)
+            else if (w1 < 1 && r2 >= r1 / 2)
             {
                 Console.WriteLine("3");
                 MessageBox.Show("El valor de w1 no puede ser menor a -> 1", "W1 menor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 
             } 
-            else if (w1 >= 1 && r2 >= r1 && h1 > 0 && h2 > 0) 
+            else if (w1 >= 1 && r2 >= r1 / 2 && h1 > 0 && h2 > 0) 
             {
                 Console.WriteLine("4");
                 MessageBox.Show("Archivo cilindro.obj creado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             // COMPROBAR QUE ALTURAS NO SEAN 0
-            else if((h2 <= 0 || h1 <= 0) && (w1 >= 1 && r2 >= r1))
+            else if((h2 <= 0 || h1 <= 0) && (w1 >= 1 && r2 >= r1 / 2))
             {
                 Console.WriteLine("5");
                 MessageBox.Show("Los valores de h1 o h2 no pueden ser 0", "W1 menor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
