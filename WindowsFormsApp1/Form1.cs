@@ -195,7 +195,11 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine("1");
                 MessageBox.Show("El valor de 'r2' no puede ser menor al de 'r1'", "R1 menor :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } 
+            }
+            else if (w1 >= r1 && r2 >= r1)
+            {
+                MessageBox.Show("El valor de w1 no puede ser mayor a r1", "W1 mayor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (r2 >= r1 && w1 >= 1 && h1 > 0 && h2 > 0)
             {
                 Console.WriteLine("2");
@@ -206,6 +210,7 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine("3");
                 MessageBox.Show("El valor de w1 no puede ser menor a -> 1", "W1 menor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
             } 
             else if (w1 >= 1 && r2 >= r1 && h1 > 0 && h2 > 0) 
             {
@@ -217,7 +222,8 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine("5");
                 MessageBox.Show("Los valores de h1 o h2 no pueden ser 0", "W1 menor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            } 
+
         }
 
     } // CLASE
