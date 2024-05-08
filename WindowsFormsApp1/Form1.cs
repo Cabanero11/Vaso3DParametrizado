@@ -229,11 +229,11 @@ namespace WindowsFormsApp1
             if (r2 < (r1 / 2))
             {
                 Console.WriteLine("1");
-                MessageBox.Show("El valor de 'r2' no puede ser menor a la mitad de 'r1'", "R2 mitad :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The value of 'r2' can't be lower than the half of 'r1'", "R2 half :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (w1 >= r1 && r2 >= r1 / 2)
             {
-                MessageBox.Show("El valor de w1 no puede ser mayor a r1", "W1 mayor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("w1 can't be greater than r1", "W1 greater", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (r2 >= r1 / 2 && w1 >= 1 && h1 > 0 && h2 > 0)
             {
